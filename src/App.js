@@ -1,13 +1,13 @@
-import React                                    from "react";
+import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Layout                                   from "./Layout";
-import Home                                     from "./Pages/Home";
-import About                                    from "./Pages/About";
-import Contact                                  from "./Pages/Contact";
-import Create                                   from "./Pages/Create";
-import Show                                     from "./Pages/Show";
-import NotFound                                 from "./Pages/NotFound";
-import PizzaDetails                             from "./Pages/PizzaDetails";
+import Layout from "./Layout";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import {Create} from "./Pages/Create/";
+import Show from "./Pages/Show";
+import NotFound from "./Pages/NotFound";
+import PizzaDetails from "./Pages/PizzaDetails";
 
 function App() {
 	return (
