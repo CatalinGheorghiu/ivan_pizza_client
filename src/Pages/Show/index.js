@@ -16,6 +16,9 @@ const Show = () => {
 	const {data: pizzas, isPending} = useFetch(
 		`https://ivan-pizza.herokuapp.com/pizzas`
 	);
+	// const {data: pizzas, isPending} = useFetch(
+	// 	`/pizzas`
+	// );
 	
 	return (
 		<Box color='#fff'>

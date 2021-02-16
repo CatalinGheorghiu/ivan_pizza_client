@@ -1,9 +1,21 @@
 import React        from "react";
-import {useParams}  from "react-router-dom";
+import {useParams,useHistory}  from "react-router-dom";
 import {Flex, Text} from "@chakra-ui/react";
+import {DeleteIcon} from "@chakra-ui/icons"
+import useFetch from "../../Hooks/useFetch";
 
 const PizzaDetails = () => {
 	const {id} = useParams();
+	const history = useHistory();
+	const {data:pizza,isPending} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`)
+	
+	const handleClick =  (e) => {
+		 fetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`,{
+			method:"DELETE"
+		}).then(()=> history.push("/show"))
+		
+	};
+	
 	return (
 		<section>
 			<Flex
@@ -14,7 +26,9 @@ const PizzaDetails = () => {
 				color="#fff"
 				direction={["column", "column", "column", "row"]}
 			>
-				<Text as="h1" fontSize="3xl">This is pizza with the id {id}</Text>
+				{pizza && <Text as="h1" fontSize="3xl">{pizza.name} {pizza.id}</Text>}
+				
+				<DeleteIcon onClick={handleClick}/>
 			</Flex>
 		</section>
 	);

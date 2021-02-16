@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useHistory} from "react-router-dom"
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import schema from "../../../Validation";
@@ -18,7 +19,7 @@ import {
 
 export const Create = () => {
 	const [previewSource, setPreviewSource] = useState("");
-	
+	const history = useHistory()
 	//React form
 	const {handleSubmit, errors, register, formState, control} = useForm({
 		resolver: yupResolver(schema),
@@ -53,9 +54,12 @@ export const Create = () => {
 	};
 	
 	function onSubmit(values) {
-		values.img = previewSource;
-		values.ingredients = values.ingredients.map(ingredient => ingredient.value);
-		uploadData(values);
+		const newValues = {...values};
+		newValues.img = previewSource;
+		newValues.ingredients = values.ingredients.map(ingredient => ingredient.value);
+		uploadData(newValues);
+		
+		history.push("/")
 	}
 	
 	
