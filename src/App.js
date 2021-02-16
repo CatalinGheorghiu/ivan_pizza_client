@@ -4,10 +4,11 @@ import Layout from "./Layout";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
-import {Create} from "./Pages/Create/";
+import Create from "./Pages/Create/";
 import Show from "./Pages/Show";
 import NotFound from "./Pages/NotFound";
-import PizzaDetails from "./Pages/PizzaDetails";
+import PizzaDetails from "./Pages/Show/PizzaDetails";
+import Edit from "./Pages/Edit";
 
 function App() {
 	return (
@@ -30,8 +31,11 @@ function App() {
 						<Route exact path="/show">
 							<Show/>
 						</Route>
-						<Route path="/show/:id">
+						<Route exact path="/show/:id">
 							<PizzaDetails/>
+						</Route>
+						<Route exact path="/edit/:id">
+							<Edit/>
 						</Route>
 						<Route path="*">
 							<NotFound/>

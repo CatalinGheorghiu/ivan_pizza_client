@@ -1,4 +1,4 @@
-import React        from "react";
+import React from "react";
 import {
 	Badge,
 	Box,
@@ -7,10 +7,10 @@ import {
 	SimpleGrid,
 	Spinner,
 	Text,
-}                   from "@chakra-ui/react";
-import useFetch     from "../../Hooks/useFetch";
+} from "@chakra-ui/react";
+import useFetch from "../../Hooks/useFetch";
 import {v4 as uuid} from "uuid";
-import {Link}       from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Show = () => {
 	const {data: pizzas, isPending} = useFetch(
@@ -25,6 +25,7 @@ const Show = () => {
 			<Text as='h1' fontSize='4xl' textAlign='center' mt='2rem'>
 				This are all of master Ivan's pizzas
 			</Text>
+			
 			
 			{isPending ? (
 				<Flex justifyContent='center' alignItems='center' h='500px'>
