@@ -23,8 +23,8 @@ const Create = () => {
 			setPreviewSource(reader.result);
 		};
 	};
-
 	
+	// https://ivan-pizza.herokuapp.com
 	const uploadData = async (data) => {
 		try {
 			await fetch("https://ivan-pizza.herokuapp.com/pizzas", {
@@ -42,8 +42,10 @@ const Create = () => {
 		newValues.img = previewSource;
 		newValues.ingredients = values.ingredients.map(ingredient => ingredient.value);
 		uploadData(newValues);
-		
+		//Redirect
 		history.push("/");
+		//Reload
+		// window.location.reload();
 	}
 	
 	return (

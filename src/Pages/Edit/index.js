@@ -8,12 +8,11 @@ import options from "../../Assets/Options";
 const Edit = () => {
 	const history = useHistory();
 	const {id} = useParams();
-	const {
-		data: pizza,
-		isPending
-	} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
+	const {data: pizza} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
 	const [previewSource, setPreviewSource] = useState("");
-
+	
+	
+	//https://ivan-pizza.herokuapp.com
 	//Handle file
 	const handleInputChange = (e) => {
 		if (e.target.files.length === 1) {
@@ -38,15 +37,20 @@ const Edit = () => {
 	
 	const onSubmit = async (values) => {
 		const newValues = {...values};
+		previewSource ? newValues.img = previewSource : newValues.img = pizza.img;
 		newValues.ingredients = values.ingredients.map(ingredient => ingredient.value);
 		
+		//https://ivan-pizza.herokuapp.com
 		try {
 			await fetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`, {
 				method: "PATCH",
 				body: JSON.stringify(newValues),
 				headers: {"Content-type": "application/json"}
 			});
-			history.push("/");
+			//Redirect
+			history.push("/show");
+			//Refresh
+			// window.location.reload();
 		} catch (e) {
 			console.log(e);
 		}

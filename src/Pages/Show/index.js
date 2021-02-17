@@ -11,14 +11,13 @@ import {
 import useFetch from "../../Hooks/useFetch";
 import {v4 as uuid} from "uuid";
 import {Link} from "react-router-dom";
+//https://ivan-pizza.herokuapp.com/pizzas
 
 const Show = () => {
 	const {data: pizzas, isPending} = useFetch(
 		`https://ivan-pizza.herokuapp.com/pizzas`
 	);
-	// const {data: pizzas, isPending} = useFetch(
-	// 	`/pizzas`
-	// );
+	
 	
 	return (
 		<Box color='#fff'>

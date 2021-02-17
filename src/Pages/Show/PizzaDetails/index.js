@@ -7,16 +7,15 @@ import useFetch from "../../../Hooks/useFetch";
 const PizzaDetails = () => {
 	const {id} = useParams();
 	const history = useHistory();
-	const {
-		data: pizza,
-		isPending
-	} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
+	const {data: pizza	} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
+	//https://ivan-pizza.herokuapp.com
 	
-	const handleClick = (e) => {
+	const handleClick = () => {
 		fetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`, {
 			method: "DELETE"
-		}).then(() => history.push("/show"));
-		
+		}).then(() => {
+			history.push("/show");
+		});
 	};
 	
 	return (
