@@ -7,8 +7,9 @@ import useFetch from "../../../Hooks/useFetch";
 const PizzaDetails = () => {
 	const {id} = useParams();
 	const history = useHistory();
-	const {data: pizza	} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
+	const {data: pizza} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
 	//https://ivan-pizza.herokuapp.com
+	
 	
 	const handleClick = () => {
 		fetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`, {
@@ -31,11 +32,13 @@ const PizzaDetails = () => {
 				{pizza &&
 				<Box>
 					<Text as="h1" fontSize="3xl">{pizza.name} {pizza.id}</Text>
-					
-					<DeleteIcon onClick={handleClick}/>
-					<Link as={ReachLink} to={`/edit/${pizza.id}`}>
-						<EditIcon/>
-					</Link>
+					{pizza.canBeDeleted &&
+					<Box>
+						<DeleteIcon onClick={handleClick}/>
+						<Link as={ReachLink} to={`/edit/${pizza.id}`}>
+							<EditIcon/>
+						</Link>
+					</Box>}
 				</Box>
 				}
 			</Flex>

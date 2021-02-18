@@ -49,8 +49,6 @@ const Edit = () => {
 			});
 			//Redirect
 			history.push("/show");
-			//Refresh
-			// window.location.reload();
 		} catch (e) {
 			console.log(e);
 		}

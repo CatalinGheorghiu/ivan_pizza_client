@@ -1,19 +1,21 @@
-import React  from "react";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import {Flex} from "@chakra-ui/react";
 
-const index = ({children}) => {
+const Layout = (props) => {
 	return (
-		<>
+		<Flex
+			as="header"
+			direction="column"
+			maxW={{xl: "100vw"}}
+			{...props}
+		>
 			<Header/>
-			<main style={{
-				flexGrow: "1",
-				background: `#f3f3f5 url(${require("../Img/bg2.jpg").default}) no-repeat center center fixed`,
-				backgroundSize: "cover"
-			}}>{children}</main>
+			{props.children}
 			<Footer/>
-		</>
+		</Flex>
 	);
 };
 
-export default index;
+export default Layout;

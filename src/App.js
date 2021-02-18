@@ -10,7 +10,7 @@ import NotFound from "./Pages/NotFound";
 import PizzaDetails from "./Pages/Show/PizzaDetails";
 import Edit from "./Pages/Edit";
 
-function App() {
+const App = () => {
 	return (
 		<>
 			<Router>
@@ -45,6 +45,7 @@ function App() {
 			</Router>
 		</>
 	);
-}
+};
 
 export default App;
+

@@ -19,7 +19,7 @@ const Form = ({onSubmit, handleInputChange, value}) => {
 	return (
 		
 		<Box>
-			<form onSubmit={handleSubmit(onSubmit)} style={{width: "100%"}}>
+			<form onSubmit={handleSubmit(onSubmit)} >
 				
 				<FormInput name="name" id="name" placeholder="Name" register={register}
 				           error={errors.name}

@@ -5,9 +5,12 @@ const index = () => {
 	return (
 		<footer>
 			<Flex
-				h="8vh"
-				w="100%"
-				backgroundColor="#222222"
+				// h="8vh"
+				// w="100%"
+				// backgroundColor="#222222"
+				bottom="150px"
+				left="50%"
+				pos="absolute"
 				justifyContent="center"
 				alignItems="center"
 			>
