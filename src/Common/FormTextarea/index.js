@@ -11,8 +11,9 @@ const FormTextarea = ({
                       }) => {
 	return (
 		<>
-			<FormControl isInvalid={error} color="#fff" my="15px">
+			<FormControl isInvalid={error}  my="15px">
 				<Textarea ref={register}
+				          my={1}
 				          placeholder={placeholder}
 				          onChange={onChange}
 				          type={type}

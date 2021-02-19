@@ -6,10 +6,12 @@ import {Flex} from "@chakra-ui/react";
 const Layout = (props) => {
 	return (
 		<Flex
-			as="header"
+			minH="100vh"
+			pos="relative"
+			bgImage={`url(${require("../Img/work.jpg").default})`}
+			bgSize="cover"
+			bgRepeat="no-repeat"
 			direction="column"
-			maxW={{xl: "100vw"}}
-			{...props}
 		>
 			<Header/>
 			{props.children}

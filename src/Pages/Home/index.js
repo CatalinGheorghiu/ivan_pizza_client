@@ -1,41 +1,67 @@
-import React               from "react";
+import React from "react";
 import {Link as ReachLink} from "react-router-dom";
-import {Flex, Link}        from "@chakra-ui/react";
-import CreatePizzas        from "./CreatePizzas";
-import ShowPizzas          from "./ShowPizzas";
+import {Flex, Heading, Link, Text} from "@chakra-ui/react";
+import {SearchIcon} from "@chakra-ui/icons";
 
 
-const index = () => {
+const Home = () => {
 	return (
 		
 		<Flex
-			height="82vh"
-			justifyContent="space-around"
-			alignItems="center"
-			direction={["column", "column", "column", "row"]}
+			as="main"
+			align="center"
+			flex="1 0 auto"
+			ml="10vw"
 		>
-
-			<Link as={ReachLink} to="/show"
-			      // minW="300px"
-			      // w="35vw"
-			      // height="60%"
-			      // alignItems="center"
-			      // justifyContent="center"
-			      // m="20px auto"
-			      // bg="#fff"
-			      // _hover={{backgroundColor: "#e7272d", color: "#fff"}}
-			      // shadow="20px 20px 60px #bebebe"
+			<Flex
+				direction="column"
+				justify="space-between"
+				w={["350px", "450px"]}
 			>
-				<Flex alignItems="center"
-				      justifyContent="center"
-				      height="100%"
+				<Text
+					as="p"
+					color="#e7272d"
+					fontWeight="bold"
+					letterSpacing={["0.25em", "0.6em", "0.86em"]}
+					mb="0.5rem"
+					textShadow="1px 1px 1px #000"
 				>
-					<ShowPizzas/>
-				</Flex>
-			</Link>
+					ARTISAN SINCE 1991
+				</Text>
+				<Heading
+					fontSize={["40px", "58px", "70px"]}
+					color="#fff"
+					lineHeight={["50px", "60px", "70px", "85px"]}
+					mb="50px"
+					sx={{wordSpacing: "350px"}}
+				>
+					Traditional Italian Pizza
+				</Heading>
+				
+				<Link
+					d="inline-flex"
+					alignItems="center"
+					justifyContent="center"
+					verticalAlign="middle"
+					h="3rem"
+					w="200px"
+					fontSize="1rem"
+					p="0 1rem"
+					bg="#e7272d"
+					color="#fff"
+					borderRadius="0.375rem"
+					fontWeight="bold"
+					_hover={{backgroundColor: "#fff", color: "#e7272d"}}
+					_focus={{backgroundColor: "#fff", color: "#e7272d"}}
+					as={ReachLink}
+					to="/show">
+					<SearchIcon mr="10px"/> Show Menu
+				</Link>
+			</Flex>
+		
 		</Flex>
 	
 	);
 };
 
-export default index;
+export default Home;

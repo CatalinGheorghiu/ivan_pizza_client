@@ -30,32 +30,44 @@ const Header = (props) => {
 	return (
 		// Navbar
 		<Flex
-			as="nav"
+			as="header"
 			align="center"
 			justify="space-between"
-			wrap="wrap"
+			// pos="absolute"
 			w="100%"
-			bg="#222"
 			{...props}
 		>
 			{/*Mobile*/}
 			<Flex
+				as="nav"
 				display={{base: "block", md: "none"}}
 				h="100px"
+				w="100%"
 				align="center"
 			>
+				<Flex
+					w="100%"
+					justify="space-between"
+				>
 				{/* Hamburger icon*/}
 				<IconButton
 					onClick={handleClick}
 					bg="transparent"
 					aria-label="Show menu"
-					_focus={{outline: "none"}}
+					_focus={{color: "#e7272d"}}
 					_hover={{color: "#e7272d"}}
 					m="25px 0 0 25px"
 					fontSize="3xl"
 					color="#fff"
 					icon={<HamburgerIcon/>}
 				/>
+				
+				<Image
+					src={`${require("../../Img/ivan's_pizza.png").default}`}
+					boxSize="100px"
+					m="15px 25px 0 0"
+				/>
+				</Flex>
 				<Drawer
 					placement="top"
 					onClose={onClose}
@@ -73,7 +85,7 @@ const Header = (props) => {
 										onClick={close}
 										color="#fff"
 										bg="none"
-										_focus={{outline: "none"}}
+										_focus={{color: "#e7272d"}}
 										_hover={{color: "#e7272d"}}
 										aria-label="Hide menu"
 										m="25px 0 0 10px "
@@ -95,7 +107,7 @@ const Header = (props) => {
 										borderRadius="0.375rem"
 										fontWeight="bold"
 										_hover={{color: "#e7272d"}}
-										_focus={{outline: "none"}}
+										_focus={{color: "#e7272d"}}
 										as={ReachLink}
 										to="/create">
 										<AddIcon mr="10px"/> Add A Pizza
@@ -118,7 +130,7 @@ const Header = (props) => {
 										to="/"
 										m="10px 20px"
 										_hover={{color: "#e7272d"}}
-										_focus={{border: "none"}}> Home
+										_focus={{color: "#e7272d"}}> Home
 									</Link>
 									
 									{/*About page link*/}
@@ -128,7 +140,7 @@ const Header = (props) => {
 										to="/about"
 										m="10px 20px"
 										_hover={{color: "#e7272d"}}
-										_focus={{border: "none"}}>About Ivan
+										_focus={{color: "#e7272d"}}>About Ivan
 									</Link>
 									
 									{/*Contact page link*/}
@@ -138,7 +150,7 @@ const Header = (props) => {
 										to="/contact"
 										m="10px 20px"
 										_hover={{color: "#e7272d"}}
-										_focus={{border: "none"}}>Contact
+										_focus={{color: "#e7272d"}}>Contact
 									</Link>
 								</Flex>
 								}
@@ -150,12 +162,13 @@ const Header = (props) => {
 			
 			{/*Desktop*/}
 			<Flex
+				as="nav"
 				display={{base: "none", md: "block"}}
 				w="100%"
 			>
 				{/* Main container*/}
 				<Flex
-					m={[null, null, "70px 40px 0 40px", "70px 100px 0 100px"]}
+					m={[null, null, "70px 70px 0 40px", "70px 130px 0 100px"]}
 					justify="space-between"
 					align="center"
 				>
@@ -182,7 +195,7 @@ const Header = (props) => {
 							to="/"
 							m="10px 25px"
 							_hover={{color: "#e7272d"}}
-							_focus={{border: "none"}}> Home
+							_focus={{borderBottom: "1px solid #e7272d",color: "#e7272d"}}> Home
 						</Link>
 						
 						{/*About page link*/}
@@ -192,7 +205,7 @@ const Header = (props) => {
 							to="/about"
 							m="10px 25px"
 							_hover={{color: "#e7272d"}}
-							_focus={{border: "none"}}>About Ivan
+							_focus={{borderBottom: "1px solid #e7272d",color: "#e7272d"}}>About Ivan
 						</Link>
 						
 						{/*Contact page link*/}
@@ -202,7 +215,7 @@ const Header = (props) => {
 							to="/contact"
 							m="10px 25px"
 							_hover={{color: "#e7272d"}}
-							_focus={{border: "none"}}>Contact
+							_focus={{borderBottom: "1px solid #e7272d",color: "#e7272d"}}>Contact
 						</Link>
 					</Flex>
 					
@@ -219,7 +232,7 @@ const Header = (props) => {
 						borderRadius="0.375rem"
 						fontWeight="bold"
 						_hover={{color: "#e7272d"}}
-						_focus={{outline: "none"}}
+						_focus={{outline: "none",color: "#e7272d"}}
 						as={ReachLink}
 						to="/create">
 						<AddIcon mr="10px"/> Add A Pizza

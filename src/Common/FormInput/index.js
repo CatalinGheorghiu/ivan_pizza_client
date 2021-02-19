@@ -13,6 +13,7 @@ const FormInput = ({
 		<>
 			<FormControl isInvalid={error} color="#fff" my="15px">
 				<Input
+					my={1}
 					ref={register}
 					placeholder={placeholder}
 					onChange={onChange}
