@@ -33,8 +33,8 @@ const Header = (props) => {
 			as="header"
 			align="center"
 			justify="space-between"
-			// pos="absolute"
 			w="100%"
+			mb={["2rem","1rem"]}
 			{...props}
 		>
 			{/*Mobile*/}

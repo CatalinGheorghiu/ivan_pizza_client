@@ -14,16 +14,18 @@ const Contact = () => {
 	return (
 		<Flex
 			as="main"
-			// minH="100vh"
+			grow="1"
 			justify="center"
 			m="5rem  0"
 		>
 			<Flex
 				direction="column"
-				bg="rgba(0,0,0,0.4)"
+				bg="rgba(0,0,0,0.5)"
 				borderRadius="7px"
 				p="1rem"
-				w={["80%"]}
+				maxH="550px"
+				minW="320px"
+				maxW={["80%","50%","450px"]}
 				border="0.1px solid #fff"
 			>
 				<Text
@@ -56,6 +58,7 @@ const Contact = () => {
 						register={register}
 					/>
 					<FormTextarea
+						color="#fff"
 						name="message"
 						placeholder="Message"
 						register={register}
@@ -72,7 +75,10 @@ const Contact = () => {
 						}}
 						color="#fff"
 						isLoading={formState.isSubmitting}
-						type="submit">Submit</Button>
+						type="submit"
+					>
+						Submit
+					</Button>
 				</form>
 			</Flex>
 		</Flex>

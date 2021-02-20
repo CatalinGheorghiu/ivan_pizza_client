@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import Form from "../../Common/Form";
-import {Flex, Heading, Image} from "@chakra-ui/react";
+import {Flex, Text} from "@chakra-ui/react";
 import useFetch from "../../Hooks/useFetch";
 import options from "../../Assets/Options";
 
@@ -11,8 +11,6 @@ const Edit = () => {
 	const {data: pizza} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
 	const [previewSource, setPreviewSource] = useState("");
 	
-	
-	//https://ivan-pizza.herokuapp.com
 	//Handle file
 	const handleInputChange = (e) => {
 		if (e.target.files.length === 1) {
@@ -55,19 +53,40 @@ const Edit = () => {
 	};
 	
 	return (
-		<Flex h="82vh" m="auto" direction="column" justify="center" align="center"
-		      color="#fff">
-			<Heading mb="50px" letterSpacing="8px">Edit your pizza {id}</Heading>
-			
-			{pizza && <Form onSubmit={onSubmit} value={newPizza}
-			                handleInputChange={handleInputChange}
-			                previewSource={previewSource}/>}
-			
-			{previewSource && <Image
-				boxSize="200px"
-				src={previewSource}
-				alt="pizza image"
-			/>}
+		<Flex
+			as="main"
+			grow="1"
+			justify="center"
+			m="5rem 0"
+		>
+			{pizza &&
+			<Flex
+				direction="column"
+				bg="rgba(0,0,0,0.5)"
+				borderRadius="7px"
+				p="1rem"
+				maxH="550px"
+				minW="320px"
+				maxW={["80%","50%","450px"]}
+				border="0.1px solid #fff"
+			>
+				
+				<Text
+					color="#fff"
+					fontWeight="bold"
+					textAlign="center"
+					mb="20px"
+					fontSize="1.5em"
+				>
+					Edit {pizza.name}
+				</Text>
+				<Form
+					onSubmit={onSubmit}
+					value={newPizza}
+					handleInputChange={handleInputChange}
+					previewSource={previewSource}/>
+			</Flex>
+			}
 		</Flex>
 	);
 };

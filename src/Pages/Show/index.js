@@ -3,16 +3,16 @@ import {
 	Badge,
 	Box,
 	Flex,
-	Grid,
 	Image,
 	SimpleGrid,
 	Spinner,
 	Text,
 } from "@chakra-ui/react";
+import ScrollToTop from "../../Common/ScrollToTop";
 import useFetch from "../../Hooks/useFetch";
 import {v4 as uuid} from "uuid";
 import {Link} from "react-router-dom";
-//https://ivan-pizza.herokuapp.com/pizzas
+
 
 const Show = () => {
 	const {data: pizzas, isPending} = useFetch(
@@ -21,21 +21,19 @@ const Show = () => {
 	
 	
 	return (
+		// Main container
 		<Flex
 			as="main"
 			minH="100vh"
 			justify="center"
 			m="2rem  0"
-		
 		>
-			{/*<Text as='h1' fontSize='4xl' textAlign='center' mt='2rem'>*/}
-			{/*	This are all of master Ivan's pizzas*/}
-			{/*</Text>*/}
+			{/*Scroll to top Button*/}
+			<ScrollToTop showBellow={250}/>
 			
-			
-			
-			
+			{/* Inner container*/}
 			<Flex
+				p="2rem "
 				w="100%"
 				justify="center"
 				align="center"
@@ -43,80 +41,96 @@ const Show = () => {
 				className="container"
 			>
 				<Text
+					mb="2rem"
+					as="h1"
 					textAlign="center"
 					color="#fff"
-					fontSize="3xl"
+					fontSize={["3xl","4xl","5xl"]}
 				>Here are all the pizzas master Ivan created
 				</Text>
-
-					{isPending ? (
-						<Flex justifyContent='center' alignItems='center' h='500px'>
-							<Spinner
-								thickness='4px'
-								speed='0.65s'
-								emptyColor='gray.200'
-								color='blue.500'
-								size='xl'
-							/>
-						</Flex>
-					) : (
-						<SimpleGrid
-							minChildWidth={[320, 260]}
-							gap={6}
-							key={uuid()}
-							m='3rem'
-						>
-							{pizzas &&
-							pizzas.map((pizza) => (
-								<Box
-									bg="#1a202b"
-									borderWidth='1px'
-									borderRadius='lg'
-									overflow='hidden'
-									key={uuid()}
-								>
-									<Link to={`/show/${pizza.id}`} >
-										{pizza.img !== ""
-											?
-											<Image
-												h="250px"
-												src={`${pizza.img}`}
-												alt={pizza.name}/>
-											:
-											<Image
-												// fit="fill"
-												// h="250px"
-												w="full"
-												h={56}
-												objectFit="cover"
-												objectPosition="center"
-												src={`${require("../../Img/no-image-resized.png").default}`}
-												alt={pizza.name}/>
-										}
+				
+				{isPending ? (
+					//Spinner
+					<Flex
+						justifyContent='center'
+						alignItems='center'
+						h='500px'>
+						<Spinner
+							thickness='4px'
+							speed='0.65s'
+							emptyColor='gray.200'
+							color='blue.500'
+							size='xl'
+						/>
+					</Flex>
+				) : (
+					<SimpleGrid
+						minChildWidth={["320px", "260px", "320px"]}
+						w="100%"
+						gap={6}
+						key={uuid()}
+						m='3rem'
+					>
+						{pizzas &&
+						pizzas.map((pizza) => (
+							<Box
+								alignSelf="center"
+								justifySelf="center"
+								bg="#1a202b"
+								borderWidth='1px'
+								borderRadius='lg'
+								overflow='hidden'
+								minW="280px"
+								maxW="443px"
+								m={["2rem"]}
+								key={uuid()}
+							>
+								<Link to={`/show/${pizza.id}`}>
+									{pizza.img !== ""
+										?
+										<Image
+											// h="250px"
+											src={`${pizza.img}`}
+											alt={pizza.name}/>
+										:
+										<Image
+											// fit="fill"
+											// h="250px"
+											w="full"
+											h={56}
+											objectFit="cover"
+											objectPosition="center"
+											src={`${require("../../Img/no-image-resized.png").default}`}
+											alt={pizza.name}/>
+									}
+									<Flex
+										direction="column"
+										align="center"
+									>
 										<Flex
-											direction="column"
+											position="relative"
+											bg="#171922"
+											w="100%"
+											py='10px'
+											justify="center"
 											align="center"
-											>
+										>
+											{pizza.canBeDeleted &&
+											<Badge
+												position="absolute"
+												left="0"
+												top="-10px"
+												borderRadius='full'
+												p='1px 20px'
+												mx='12px'
+												colorScheme='teal'
+											>New
+											</Badge>}
+											
 											<Flex
-												// direction="column-reverse"
-												bg="#171922"
-												w="100%"
-												py='10px'
-												justify="center"
-												align="center"
-											>
-												{pizza.canBeDeleted && <Badge
-													borderRadius='full'
-													p='1px 20px'
-													mx='12px'
-													colorScheme='teal'
-												>New
-												</Badge>}
-												
-												<Flex
-													grow="1"
+												grow="1"
 												direction="column"
-												>
+											>
 												<Text
 													as="h3"
 													fontSize="1.2em"
@@ -124,23 +138,23 @@ const Show = () => {
 													color="#fff"
 													textAlign="center"
 												>
-												{pizza.name} {pizza.id}
+													{pizza.name} {pizza.id}
 												</Text>
-													<Text
-														textAlign="center"
-														color="#fff"
-														fontStyle="italic"
-														as="p">
-														{pizza.origin}
-													</Text>
-												</Flex>
+												<Text
+													textAlign="center"
+													color="#fff"
+													fontStyle="italic"
+													as="p">
+													{pizza.origin}
+												</Text>
 											</Flex>
-											
-											<Flex
-												direction="column"
-												justify="space-around"
-												h="200px"
-											>
+										</Flex>
+										
+										<Flex
+											direction="column"
+											justify="space-around"
+											h="200px"
+										>
 											<Text
 												as='h3'
 												fontSize='xl'
@@ -171,14 +185,14 @@ const Show = () => {
 													</Flex>
 												))}
 											</Flex>
-											</Flex>
 										</Flex>
-									</Link>
-								</Box>
-							))}
-						</SimpleGrid>
-						
-					)}
+									</Flex>
+								</Link>
+							</Box>
+						))}
+					</SimpleGrid>
+				
+				)}
 			</Flex>
 		</Flex>
 	);
