@@ -33,7 +33,7 @@ const Show = () => {
 			
 			{/* Inner container*/}
 			<Flex
-				p="2rem "
+				// p="2rem "
 				w="100%"
 				justify="center"
 				align="center"
