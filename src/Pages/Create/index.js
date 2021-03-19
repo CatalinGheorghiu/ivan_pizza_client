@@ -58,7 +58,6 @@ const Create = () => {
 				bg="rgba(0,0,0,0.5)"
 				borderRadius="7px"
 				p="1rem"
-				maxH="550px"
 				minW="320px"
 				maxW={["80%","50%","450px"]}
 				border="0.1px solid #fff"

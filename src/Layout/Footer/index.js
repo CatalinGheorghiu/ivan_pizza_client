@@ -25,14 +25,13 @@ const index = () => {
 					className="em em-sparkling_heart"
 					aria-label="SPARKLING HEART"/>
 
-				{" "}and passion by
+				{" "} by
 				<Link
 					isExternal
 					href="https://github.com/CatalinGheorghiu"
 					color="#e7272d"
 					_focus={{borderBottom: "1px solid #e7272d" }}
 					_hover={{color: "#fff"}}> {" "}
-					Ares
 					Catalin
 				</Link>
 			</Text>
