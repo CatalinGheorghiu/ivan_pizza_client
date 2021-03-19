@@ -1,6 +1,5 @@
-#Ivan's Pizza Frontend
-
-<h1>For this project I have used:</h1>
+<h1>Ivan's Pizza Frontend</h1>
+<h2>For this project I have used:</h2>
 <ul>
     <li>React</li>
     <li>React Router DOM</li>
