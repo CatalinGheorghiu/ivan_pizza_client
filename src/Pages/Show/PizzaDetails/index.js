@@ -9,11 +9,11 @@ import useFetch from "../../../Hooks/useFetch";
 const PizzaDetails = () => {
 	const {id} = useParams();
 	const history = useHistory();
-	const {data: pizza} = useFetch(`${process.env.SERVER_URL}/pizzas/${id}`);
+	const {data: pizza} = useFetch(`${process.env.REACT_APP_SERVER_URL}/pizzas/${id}`);
 
 	
 	const handleClick = () => {
-		fetch(`${process.env.SERVER_URL}/pizzas/${id}`, {
+		fetch(`${process.env.REACT_APP_SERVER_URL}/pizzas/${id}`, {
 			method: "DELETE"
 		}).then(() => {
 			history.push("/show");

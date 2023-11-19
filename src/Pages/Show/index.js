@@ -16,7 +16,7 @@ import {Link} from "react-router-dom";
 
 const Show = () => {
 	const {data: pizzas, isPending} = useFetch(
-		`${process.env.SERVER_URL}/pizzas`
+		`${process.env.REACT_APP_SERVER_URL}/pizzas`
 	);
 	
 	

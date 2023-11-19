@@ -8,7 +8,7 @@ import options from "../../Assets/Options";
 const Edit = () => {
 	const history = useHistory();
 	const {id} = useParams();
-	const {data: pizza} = useFetch(`${process.env.SERVER_URL}/pizzas/${id}`);
+	const {data: pizza} = useFetch(`${process.env.REACT_APP_SERVER_URL}/pizzas/${id}`);
 	const [previewSource, setPreviewSource] = useState("");
 	
 	//Handle file
@@ -39,7 +39,7 @@ const Edit = () => {
 		newValues.ingredients = values.ingredients.map(ingredient => ingredient.value);
 		
 		try {
-			await fetch(`${process.env.SERVER_URL}/pizzas/${id}`, {
+			await fetch(`${process.env.REACT_APP_SERVER_URL}/pizzas/${id}`, {
 				method: "PATCH",
 				body: JSON.stringify(newValues),
 				headers: {"Content-type": "application/json"}

@@ -26,7 +26,7 @@ const Create = () => {
 	
 	const uploadData = async (data) => {
 		try {
-			await fetch(`${process.env.SERVER_URL}/pizzas`, {
+			await fetch(`${process.env.REACT_APP_SERVER_URL}/pizzas`, {
 				method: "POST",
 				body: JSON.stringify(data),
 				headers: {"Content-type": "application/json"}
