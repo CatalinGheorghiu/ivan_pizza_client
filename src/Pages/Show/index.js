@@ -16,7 +16,7 @@ import {Link} from "react-router-dom";
 
 const Show = () => {
 	const {data: pizzas, isPending} = useFetch(
-		`https://ivan-pizza.herokuapp.com/pizzas`
+		`${process.env.SERVER_URL}/pizzas`
 	);
 	
 	

@@ -8,7 +8,7 @@ import options from "../../Assets/Options";
 const Edit = () => {
 	const history = useHistory();
 	const {id} = useParams();
-	const {data: pizza} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
+	const {data: pizza} = useFetch(`${process.env.SERVER_URL}/pizzas/${id}`);
 	const [previewSource, setPreviewSource] = useState("");
 	
 	//Handle file
@@ -38,9 +38,8 @@ const Edit = () => {
 		previewSource ? newValues.img = previewSource : newValues.img = pizza.img;
 		newValues.ingredients = values.ingredients.map(ingredient => ingredient.value);
 		
-		//https://ivan-pizza.herokuapp.com
 		try {
-			await fetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`, {
+			await fetch(`${process.env.SERVER_URL}/pizzas/${id}`, {
 				method: "PATCH",
 				body: JSON.stringify(newValues),
 				headers: {"Content-type": "application/json"}

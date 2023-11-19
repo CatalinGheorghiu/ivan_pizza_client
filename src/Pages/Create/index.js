@@ -24,10 +24,9 @@ const Create = () => {
 		};
 	};
 	
-	// https://ivan-pizza.herokuapp.com
 	const uploadData = async (data) => {
 		try {
-			await fetch("https://ivan-pizza.herokuapp.com/pizzas", {
+			await fetch(`${process.env.SERVER_URL}/pizzas`, {
 				method: "POST",
 				body: JSON.stringify(data),
 				headers: {"Content-type": "application/json"}
@@ -83,6 +82,3 @@ const Create = () => {
 };
 
 export default Create;
-
-
-

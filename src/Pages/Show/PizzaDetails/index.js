@@ -9,12 +9,11 @@ import useFetch from "../../../Hooks/useFetch";
 const PizzaDetails = () => {
 	const {id} = useParams();
 	const history = useHistory();
-	const {data: pizza} = useFetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`);
-	//https://ivan-pizza.herokuapp.com
-	
+	const {data: pizza} = useFetch(`${process.env.SERVER_URL}/pizzas/${id}`);
+
 	
 	const handleClick = () => {
-		fetch(`https://ivan-pizza.herokuapp.com/pizzas/${id}`, {
+		fetch(`${process.env.SERVER_URL}/pizzas/${id}`, {
 			method: "DELETE"
 		}).then(() => {
 			history.push("/show");
